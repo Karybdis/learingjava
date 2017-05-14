@@ -7,7 +7,8 @@ public class Student
 {
     public static ArrayList<Student> students = new ArrayList<>();
     private String name;
-    private int id;
+    private String id;
+    public  ArrayList<Lesson> lessons = new ArrayList<>();
 
     public String getName()
     {
@@ -19,13 +20,15 @@ public class Student
         this.name = name;
     }
 
-    public int getId()
+    public String getId()
     {
         return id;
     }
 
-    public void setId(int id)
+    public void setId(String id)
     {
         this.id = id;
     }
+
+
 }

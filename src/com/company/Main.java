@@ -1,6 +1,7 @@
 package com.company;
 
 import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
+import sun.awt.SunToolkit;
 
 import java.awt.*;
 import java.util.Scanner;
@@ -39,27 +40,28 @@ public class Main
             System.out.println("请输入学生姓名");
             stu.setName(scanf.next());
             System.out.println("请输入学生学号");
-            stu.setId(scanf.nextInt());
-            Student.students.add(stu);
+            stu.setId(scanf.next());
             for (int j = 0; j < class_num; j++)
             {
                 Lesson les = new Lesson();
                 System.out.println("请输入课程名字");
                 les.setName(scanf.next());
                 System.out.println("请输入课程分数");
-                les.setGrade(scanf.nextInt());
-                Lesson.lessons.add(les);
+                les.setGrade(scanf.next());
+                stu.lessons.add(les);
             }
+            Student.students.add(stu);
         }
 
         for (Student student : Student.students)
         {
-            System.out.print(student.getName()+' ');
-            System.out.print(student.getId()+' ');
-            for (Lesson lesson : Lesson.lessons)
+
+            System.out.print(student.getName() + ' ');
+            System.out.print(student.getId() + ' ');
+            for (Lesson lesson : student.lessons)
             {
-                System.out.print(lesson.getName()+' ');
-                System.out.print(lesson.getGrade()+' ');
+                System.out.print(lesson.getName() + ' ');
+                System.out.print(lesson.getGrade() + ' ');
             }
             System.out.print("\n");
         }

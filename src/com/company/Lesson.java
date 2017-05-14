@@ -4,10 +4,8 @@ import java.util.ArrayList;
 
 public class Lesson
 {
-
-    public static ArrayList<Lesson> lessons = new ArrayList<>();
     private String name;
-    private int grade;
+    private String grade;
 
     public String getName()
     {
@@ -18,13 +16,15 @@ public class Lesson
     {
         this.name = name;
     }
-    public int getGrade()
+
+    public String getGrade()
     {
         return grade;
     }
 
-    public void setGrade(int grade)
+    public void setGrade(String grade)
     {
         this.grade = grade;
     }
+
 }
