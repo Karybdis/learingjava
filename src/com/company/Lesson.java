@@ -2,15 +2,12 @@ package com.company;
 
 import java.util.ArrayList;
 
-/**
- * Created by sunsc on 2017/5/14.
- */
 public class Lesson
 {
 
     public static ArrayList<Lesson> lessons = new ArrayList<>();
     private String name;
-    private int id;
+    private int grade;
 
     public String getName()
     {
@@ -21,16 +18,13 @@ public class Lesson
     {
         this.name = name;
     }
-
-    public int getId()
+    public int getGrade()
     {
-        return id;
+        return grade;
     }
 
-    public void setId(int id)
+    public void setGrade(int grade)
     {
-        this.id = id;
+        this.grade = grade;
     }
-
-
 }
