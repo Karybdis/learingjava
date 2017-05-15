@@ -103,7 +103,7 @@ public class Main
                     @Override
                     public int compare(Student o1, Student o2)
                     {
-                        return o2.getAllgrade().compareTo(o1.getAllgrade());
+                        return o1.getAllgrade().compareTo(o2.getAllgrade());
                     }
                 });
                 print();
@@ -114,7 +114,7 @@ public class Main
                     @Override
                     public int compare(Student o1, Student o2)
                     {
-                        return o1.getAllgrade().compareTo(o2.getAllgrade());
+                        return o2.getAllgrade().compareTo(o1.getAllgrade());
                     }
                 });
             case 3:
@@ -123,7 +123,7 @@ public class Main
                     @Override
                     public int compare(Student o1, Student o2)
                     {
-                        return o2.getId().compareTo(o1.getId());
+                        return o1.getId().compareTo(o2.getId());
                     }
                 });
                 print();
@@ -134,7 +134,7 @@ public class Main
                     @Override
                     public int compare(Student o1, Student o2)
                     {
-                        return o1.getId().compareTo(o2.getId());
+                        return o2.getId().compareTo(o1.getId());
                     }
                 });
                 print();
