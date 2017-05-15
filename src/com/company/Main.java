@@ -16,7 +16,6 @@ public class Main
         System.out.println("--------------------");
         System.out.println("1.学生成绩查询");
         System.out.println("2.退出系统");
-
         Scanner scanf = new Scanner(System.in);
         int num = scanf.nextInt();
         switch (num)
