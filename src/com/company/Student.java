@@ -8,7 +8,8 @@ public class Student
     public static ArrayList<Student> students = new ArrayList<>();
     private String name;
     private String id;
-    public  ArrayList<Lesson> lessons = new ArrayList<>();
+    public ArrayList<Lesson> lessons = new ArrayList<>();
+    private int allgrade;
 
     public String getName()
     {
@@ -31,4 +32,13 @@ public class Student
     }
 
 
+    public Integer getAllgrade()
+    {
+        return allgrade;
+    }
+
+    public void setAllgrade(int allgrade)
+    {
+        this.allgrade = allgrade;
+    }
 }
