@@ -10,33 +10,31 @@ import java.util.*;
 
 public class Main
 {
-    public static void print()
+    public static int scanf()
     {
-
-        for (Student student : Student.students)
-        {
-
-            System.out.print(student.getName() + ' ');
-            System.out.printf("%d  ",student.getId());
-            for (Lesson lesson : student.lessons)
-            {
-                System.out.print(lesson.getName() + ' ');
-                System.out.printf("%d  ",lesson.getGrade());
-            }
-            System.out.print(student.getAllgrade());
-            System.out.print("\n");
-        }
-    }
-
-    public static void main(String[] args)
-    {
-        int i,j, allgrade = 0,num;
+        int num;
+        Scanner scanf = new Scanner(System.in);
         while (true)
         {
-            System.out.println("请输入对应的序号:");       //初始化界面
-            System.out.println("--------------------");
-            System.out.println("1.学生成绩查询");
-            System.out.println("2.退出系统");
+            String str = scanf.next();
+            try
+            {
+                num = Integer.parseInt(str);
+                break;
+            }
+            catch (Exception e)
+            {
+                System.out.println("请输入数值!");
+            }
+        }
+        return num;
+    }
+    public static void main(String[] args)
+    {
+        int i, j, allgrade = 0, num, stu_num, class_num;
+        while (true)
+        {
+            Print.print_home();
             Scanner scanf = new Scanner(System.in);
             num = scanf.nextInt();
             switch (num)
@@ -51,23 +49,23 @@ public class Main
 
             }
             System.out.println("请输入学生数量");
-            int stu_num = scanf.nextInt();
+            stu_num=scanf();
             System.out.println("请输入课程数量");
-            int class_num = scanf.nextInt();
+            class_num=scanf();
             for (i = 0; i < stu_num; i++)
             {
                 Student stu = new Student();
                 System.out.println("请输入学生姓名");
                 stu.setName(scanf.next());
                 System.out.println("请输入学生学号");
-                stu.setId(scanf.nextInt());
+                stu.setId(scanf());
                 for (j = 0; j < class_num; j++)
                 {
                     Lesson les = new Lesson();
                     System.out.println("请输入课程名字");
                     les.setName(scanf.next());
                     System.out.println("请输入课程分数");
-                    les.setGrade(scanf.nextInt());
+                    les.setGrade(scanf());
                     allgrade += les.getGrade();
                     stu.lessons.add(les);
                 }
@@ -76,67 +74,33 @@ public class Main
                 Student.students.add(stu);
 
             }
-            print();
+            Print.print_all();
             while (true)
             {
-                System.out.println("请输入对应的序号:");
-                System.out.println("--------------------");
-                System.out.println("1.按总成绩升序排名");
-                System.out.println("2.按总成绩降序排名");
-                System.out.println("3.按学号升序排名");
-                System.out.println("4.按学号降序排名");
-                System.out.println("5.返回主系统");
+                Print.print_sort();
                 num = scanf.nextInt();
                 switch (num)
                 {
                     case 1:
-                        Collections.sort(Student.students, new Comparator<Student>()
-                        {
-                            @Override
-                            public int compare(Student o1, Student o2)
-                            {
-                                return  Integer.valueOf(o1.getAllgrade()).compareTo(Integer.valueOf(o2.getAllgrade()));
-                            }
-                        });
-                        print();
+                        Sort.sort_grade_up();
+                        Print.print_all();
                         break;
                     case 2:
-                        Collections.sort(Student.students, new Comparator<Student>()
-                        {
-                            @Override
-                            public int compare(Student o1, Student o2)
-                            {
-                                return  Integer.valueOf(o2.getAllgrade()).compareTo(Integer.valueOf(o1.getAllgrade()));
-                            }
-                        });
-                        print();
+                        Sort.sort_grade_down();
+                        Print.print_all();
                         break;
                     case 3:
-                        Collections.sort(Student.students, new Comparator<Student>()
-                        {
-                            @Override
-                            public int compare(Student o1, Student o2)
-                            {
-                                return  Integer.valueOf(o1.getId()).compareTo(Integer.valueOf(o2.getId()));
-                            }
-                        });
-                        print();
+                        Sort.sort_id_up();
+                        Print.print_all();
                         break;
                     case 4:
-                        Collections.sort(Student.students, new Comparator<Student>()
-                        {
-                            @Override
-                            public int compare(Student o1, Student o2)
-                            {
-                                return  Integer.valueOf(o2.getId()).compareTo(Integer.valueOf(o1.getId()));
-                            }
-                        });
-                        print();
+                        Sort.sort_id_down();
+                        Print.print_all();
                         break;
                     case 5:
                         break;
                 }
-                if (num==5) break;
+                if (num == 5) break;
             }
         }
     }
