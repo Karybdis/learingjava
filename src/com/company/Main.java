@@ -17,12 +17,11 @@ public class Main
         {
 
             System.out.print(student.getName() + ' ');
-            System.out.print(student.getId() + "  ");
+            System.out.printf("%d  ",student.getId());
             for (Lesson lesson : student.lessons)
             {
                 System.out.print(lesson.getName() + ' ');
-                System.out.print(lesson.getGrade() + "  ");
-
+                System.out.printf("%d  ",lesson.getGrade());
             }
             System.out.print(student.getAllgrade());
             System.out.print("\n");
@@ -61,20 +60,21 @@ public class Main
                 System.out.println("请输入学生姓名");
                 stu.setName(scanf.next());
                 System.out.println("请输入学生学号");
-                stu.setId(scanf.next());
-                for ( j = 0; j < class_num; j++)
+                stu.setId(scanf.nextInt());
+                for (j = 0; j < class_num; j++)
                 {
                     Lesson les = new Lesson();
                     System.out.println("请输入课程名字");
                     les.setName(scanf.next());
                     System.out.println("请输入课程分数");
-                    les.setGrade(scanf.next());
-                    allgrade += Integer.parseInt(les.getGrade());
+                    les.setGrade(scanf.nextInt());
+                    allgrade += les.getGrade();
                     stu.lessons.add(les);
                 }
                 stu.setAllgrade(allgrade);
                 allgrade = 0;
                 Student.students.add(stu);
+
             }
             print();
             while (true)
@@ -95,7 +95,7 @@ public class Main
                             @Override
                             public int compare(Student o1, Student o2)
                             {
-                                return o1.getAllgrade().compareTo(o2.getAllgrade());
+                                return  Integer.valueOf(o1.getAllgrade()).compareTo(Integer.valueOf(o2.getAllgrade()));
                             }
                         });
                         print();
@@ -106,16 +106,18 @@ public class Main
                             @Override
                             public int compare(Student o1, Student o2)
                             {
-                                return o2.getAllgrade().compareTo(o1.getAllgrade());
+                                return  Integer.valueOf(o2.getAllgrade()).compareTo(Integer.valueOf(o1.getAllgrade()));
                             }
                         });
+                        print();
+                        break;
                     case 3:
                         Collections.sort(Student.students, new Comparator<Student>()
                         {
                             @Override
                             public int compare(Student o1, Student o2)
                             {
-                                return o1.getId().compareTo(o2.getId());
+                                return  Integer.valueOf(o1.getId()).compareTo(Integer.valueOf(o2.getId()));
                             }
                         });
                         print();
@@ -126,7 +128,7 @@ public class Main
                             @Override
                             public int compare(Student o1, Student o2)
                             {
-                                return o2.getId().compareTo(o1.getId());
+                                return  Integer.valueOf(o2.getId()).compareTo(Integer.valueOf(o1.getId()));
                             }
                         });
                         print();

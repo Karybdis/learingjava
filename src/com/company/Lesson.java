@@ -4,7 +4,7 @@ package com.company;
 public class Lesson
 {
     private String name;
-    private String grade;
+    private int grade;
 
     public String getName()
     {
@@ -16,14 +16,14 @@ public class Lesson
         this.name = name;
     }
 
-    public String getGrade()
+
+    public int getGrade()
     {
         return grade;
     }
 
-    public void setGrade(String grade)
+    public void setGrade(int grade)
     {
         this.grade = grade;
     }
-
 }
